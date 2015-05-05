@@ -16,6 +16,18 @@ posts: function() {
   return Posts.find();
 }
 });
+  
+Template.postSubmit.events({
+  'submit form': function(e) {
+    e.preventDefault();
+    
+    var post = {
+      txt: $(e.target).find('[name=txt]').val()
+    };
+    
+    Posts.insert(post);
+  }
+});
 
 }
 

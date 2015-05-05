@@ -12,6 +12,7 @@
     
     <div id="main" class="row-fluid">
       {{> postsList}}
+      {{> postSubmit}}
     </div>
   </div>
 </body>
@@ -30,4 +31,16 @@
       <h3>{{txt}}</h3>
     </div>
   </div>
+</template>
+
+<template name="postSubmit">
+  <form class="main form">
+  <div class="form-group">
+    <label class="control-label" for="txt">Your message</label>
+    <div class="controls">
+      <input name="txt" id="txt" type="text" value="" placeholder="Shout your message!" class="form-control"/>
+    </div>
+  </div>
+  <input type="submit" value="Submit" class="btn btn-primary"/>
+  </form>
 </template>
