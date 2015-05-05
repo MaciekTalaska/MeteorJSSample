@@ -26,6 +26,7 @@ Template.postSubmit.events({
     };
     
     Posts.insert(post);
+    e.target[0].value = "";
   }
 });
 
