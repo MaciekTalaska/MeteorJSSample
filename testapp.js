@@ -1,7 +1,4 @@
-
-
 if (Meteor.isClient) {
-Posts = new Mongo.Collection('posts');
   var postsData = [
   {
   txt: 'Introducing Telescope'
@@ -15,7 +12,9 @@ Posts = new Mongo.Collection('posts');
 ];
   
 Template.postsList.helpers({
-posts: postsData
+posts: function() {
+  return Posts.find();
+}
 });
 
 }
@@ -23,7 +22,10 @@ posts: postsData
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
-    Posts = new Mongo.Collection('posts');
+    if (Posts.find().count() === 0)
+      {
+        Posts.insert({txt:'something'});
+      }
   });
 }
 
